@@ -1,0 +1,80 @@
+html {
+    font-size: 150%;
+    font-weight: 300;
+    line-height: 1.4;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    background-color: turquoise;
+    align-items: center;
+    height: 90vh;
+}
+.container {
+    width: 400px;
+}
+
+.display {
+    background-color: rgb(71, 73, 72);
+    color: white;
+    text-align: right;
+    font-size: larger;
+    height: 50px;
+    padding-right: 8px;
+}
+
+
+.calculator {
+    background-color: blue;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.medium-btn {
+    height: 60px;
+}
+
+.numButton {
+    border-color: black;
+}
+.operatorButton {
+    background-color:rgb(148, 10, 10);
+    border-color: black;
+}
+.equalButton {
+    background-color: coral;
+    border-color: black;
+}
+
+.clearButton {
+    background-color: indianred;
+    border-color: black;
+}
+
+.numButton:hover{
+    color: #ebebee;
+    background-color: #585861;
+    font-size: 20px;
+    cursor: pointer;
+}
+.operatorButton:hover{
+    color: #ebebee;
+    background-color: rgb(102, 5, 5);
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.equalButton:hover{
+    color: #ebebee;
+    background-color:rgb(163, 59, 21);
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.clearButton:hover{
+    color: #ebebee;
+    background-color:rgb(158, 39, 39);
+    font-size: 20px;
+    cursor: pointer;
+}

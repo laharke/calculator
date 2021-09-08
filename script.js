@@ -1,7 +1,7 @@
 //functions to operate on numbers
 function add (a, b) {
-    parseInt(a);
-    parseInt(b);
+    a = parseInt(a);
+    b = parseInt(b);
     return a + b;
 };
 
@@ -47,7 +47,12 @@ let totalNumber = '';
 let totalNumber2 ='';
 numButtons.forEach((button) => {button.addEventListener('click', (event)=> {
     clickedNumber = event.target.innerHTML;
-    totalNumber += clickedNumber;
+    if (totalNumber == '0'){
+        totalNumber = clickedNumber;
+    }
+    else {
+        totalNumber += clickedNumber;
+    }
     if (totalNumber.length > 26){
         display.style.fontSize = '19px';
     }
@@ -71,7 +76,7 @@ operatorButtons.forEach((button) => {button.addEventListener('click', (event)=> 
     operador = event.target.innerHTML;
     display2.innerHTML = totalNumber;
     totalNumber2 = totalNumber;
-    totalNumber = '';
+    totalNumber = '0';
     display.innerHTML = totalNumber;
 })});
 
@@ -79,11 +84,18 @@ operatorButtons.forEach((button) => {button.addEventListener('click', (event)=> 
 const equal = document.querySelector('.equalButton');
 let result;
 equal.addEventListener('click', () => {
-    console.log(totalNumber);
-    console.log(totalNumber2);
-    console.log(operador);
     result = operate(operador, totalNumber2, totalNumber);
-    console.log(result);
     totalNumber = result;
     display.innerHTML = result;
+});
+
+//getting the ref to the clear button and restarting variables to 0.
+const clear = document.querySelector('.clearButton');
+
+clear.addEventListener('click', () => {
+    totalNumber = '0';
+    totalNumber2 = '0';
+    result = '0';
+    display.innerHTML = totalNumber;
+    display2.innerHTML = totalNumber2;
 });

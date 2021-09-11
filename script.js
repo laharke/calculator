@@ -12,9 +12,25 @@ function subtract (a, b) {
 function multiply (a, b) {
     return a * b;
 };
-
+let divisonResult;
 function divide (a, b){
-    return a / b;
+    if (b == 0){
+        alert("You cant divide by zero!")
+        totalNumber = '0';
+        totalNumber2 = '0';
+        result = '0';
+        operador = null;
+        contador = 0;
+        display.innerHTML = totalNumber;
+        display2.innerHTML = totalNumber2;
+        return 0;
+    }
+    else {
+    divisonResult = a / b;
+    divisonResult = parseFloat(divisonResult);
+    divisonResult = +divisonResult.toFixed(2);
+    return divisonResult;
+}
 };
 
 //operate function
@@ -72,21 +88,44 @@ numButtons.forEach((button) => {button.addEventListener('click', (event)=> {
 // i also store the operador to use later when the equal sing is pressed
 const operatorButtons = document.querySelectorAll('.operatorButton');
 let operador;
+let contador = 0;
+let result;
 operatorButtons.forEach((button) => {button.addEventListener('click', (event)=> {
+    if (contador > 0){
+        // realizo la opreacion
+        result = operate(operador, totalNumber2, display.innerHTML);
+        display.innerHTML = result;
+        display2.innerHTML = result;
+        totalNumber2 = result;
+        totalNumber = 0;
+        operador = event.target.innerHTML;
+    }
+    else {
     operador = event.target.innerHTML;
     display2.innerHTML = totalNumber;
     totalNumber2 = totalNumber;
     totalNumber = '0';
     display.innerHTML = totalNumber;
+    contador = contador + 1;
+    }
+    
 })});
 
 //get the ref to the  equal sing to do some basic math when its pressed
 const equal = document.querySelector('.equalButton');
-let result;
+
 equal.addEventListener('click', () => {
+    if (operador == null){
+        return;
+    }
+    else {
     result = operate(operador, totalNumber2, totalNumber);
+    result = parseFloat(result);
+    result = +result.toFixed(2);
     totalNumber = result;
     display.innerHTML = result;
+    contador = 0;
+    }
 });
 
 //getting the ref to the clear button and restarting variables to 0.
@@ -96,6 +135,10 @@ clear.addEventListener('click', () => {
     totalNumber = '0';
     totalNumber2 = '0';
     result = '0';
+    operador = null;
+    contador = 0;
     display.innerHTML = totalNumber;
     display2.innerHTML = totalNumber2;
 });
+
+//fucntion to round up to 2 decimals

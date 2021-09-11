@@ -3,16 +3,23 @@ html {
     font-weight: 300;
     line-height: 1.4;
 }
-
+header {
+    position: absolute;
+    bottom: 670px;
+    right: 715px;
+    font-size: 40px;
+    font-family: Verdana;
+}
 body{
     display: flex;
     justify-content: center;
-    background-color: turquoise;
+    background-color: rgb(21, 190, 174);
     align-items: center;
     height: 90vh;
 }
 .container {
     width: 400px;
+    border: solid 5px rgb(43, 37, 37);
 }
 
 .display {
@@ -87,4 +94,20 @@ body{
     background-color:rgb(158, 39, 39);
     font-size: 20px;
     cursor: pointer;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0px;
+    right: 10px;
+    font-size: 20px;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+a:hover {
+    color:cornflowerblue;
 }
